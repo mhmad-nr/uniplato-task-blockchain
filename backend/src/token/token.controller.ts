@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { TokenService } from './token.service';
-import { AddressDto } from './dto';
+import { AddressDto, MintDto } from './dto';
 
 // @ApiTags('Auth')
 @Controller('token')
@@ -13,5 +13,10 @@ export class TokenController {
   @Post('eth-balance')
   async getEthBalance(@Body() addressDto: AddressDto): Promise<string> {
     return await this.tokenService.getEthBalance(addressDto);
+  }
+
+  @Post('mint')
+  async mintToken(@Body() addressDto: MintDto): Promise<string> {
+    return await this.tokenService.mintToken(addressDto);
   }
 }
