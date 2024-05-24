@@ -14,7 +14,7 @@ MyDeFi is a decentralized finance (DeFi) smart contract that implements a simple
 ## Contract Deployment
 
 The MyDeFi contract is deployed on the Sepolia testnet at the following address:
-`0x13C90c4F58c1aAF4569B5A9337C6b5e0C40F19Fc`
+`0xD00BC9978f40c07bFc22288b59FCAADE949Cc4B5`
 
 ## Setup
 
