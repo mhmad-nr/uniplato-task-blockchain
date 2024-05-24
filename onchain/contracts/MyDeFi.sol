@@ -27,6 +27,7 @@ import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 // Error
 error MyDeFi__ValueIsNotEnough();
+error MyDeFi__BalanceIsNotEnough();
 error MyDeFi__ValueMustBeMoreThanZero();
 
 /**@title DeFi contract
@@ -61,6 +62,7 @@ contract MyDeFi is ERC20 {
         if ((_amount * MINIMUM_VALUE) != msg.value) {
             revert MyDeFi__ValueIsNotEnough();
         }
+        
         _mint(msg.sender, _amount);
     }
 
@@ -72,7 +74,7 @@ contract MyDeFi is ERC20 {
         uint256 balance = s_balances[msg.sender];
         uint256 totalValue = _amount * MINIMUM_VALUE;
         if (totalValue != balance) {
-            revert MyDeFi__ValueIsNotEnough();
+            revert MyDeFi__BalanceIsNotEnough();
         }
 
         s_balances[msg.sender] -= totalValue;
