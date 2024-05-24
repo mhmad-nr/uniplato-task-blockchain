@@ -102,7 +102,7 @@ contract MyDeFi is ERC20 {
     /*
      * @notice This function returns the balance of addresses which have deposited before.
      */
-    function getBalance() public view returns (uint256) {
-        return s_balances[msg.sender];
+    function getBalance(address _address) public view returns (uint256) {
+        return s_balances[_address];
     }
 }
