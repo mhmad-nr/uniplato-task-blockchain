@@ -41,7 +41,7 @@ describe("MyDeFi", () => {
 
     it("after diposit balance of the address should be equal to amount that is diposited", async () => {
       await myDeFi.diposit({ value: ENOUGH_VALUE });
-      const balance = await myDeFi.getBalance();
+      const balance = await myDeFi.getBalance(deployer);
       expect(balance).to.be.equal(ENOUGH_VALUE);
     });
   });
@@ -72,7 +72,7 @@ describe("MyDeFi", () => {
       await myDeFi.diposit({ value: getValue(AMOUNT, "gwei") });
       await myDeFi.mintDiposit(AMOUNT);
 
-      const newBalance = await myDeFi.getBalance();
+      const newBalance = await myDeFi.getBalance(deployer);
       expect(newBalance).to.be.equal(0);
     });
   });

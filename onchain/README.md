@@ -14,7 +14,7 @@ MyDeFi is a decentralized finance (DeFi) smart contract that implements a simple
 ## Contract Deployment
 
 The MyDeFi contract is deployed on the Sepolia testnet at the following address:
-`0x13C90c4F58c1aAF4569B5A9337C6b5e0C40F19Fc`
+`0xD00BC9978f40c07bFc22288b59FCAADE949Cc4B5`
 
 ## Setup
 
@@ -29,14 +29,14 @@ The MyDeFi contract is deployed on the Sepolia testnet at the following address:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/mydefi.git
-   cd mydefi
+   git clone https://github.com/mhmad-nr/uniplato-task-blockchain.git
+   cd onchain
    ```
 
 2. Install the dependencies:
 
    ```bash
-   npm install
+   yarn
    ```
 
 ### Configuration
@@ -54,7 +54,7 @@ The MyDeFi contract is deployed on the Sepolia testnet at the following address:
 To deploy the MyDeFi contract to the Sepolia testnet, use the following command:
 
 ```bash
-npx hardhat run scripts/deploy.ts --network sepolia
+yarn hardhat deploy deploy/01_Deploy_MyDeFi.ts --network sepolia
 ```
 
 ### Verification
@@ -62,7 +62,7 @@ npx hardhat run scripts/deploy.ts --network sepolia
 If you want to verify the contract on Etherscan, make sure you have set the `ETHERSCAN_API_KEY` in your `.env` file and then run:
 
 ```bash
-npx hardhat verify --network sepolia <DEPLOYED_CONTRACT_ADDRESS>
+yarn hardhat verify --network sepolia <DEPLOYED_CONTRACT_ADDRESS>
 ```
 
 ### Running Tests
@@ -70,7 +70,7 @@ npx hardhat verify --network sepolia <DEPLOYED_CONTRACT_ADDRESS>
 To run the test suite, use the following command:
 
 ```bash
-npx hardhat test
+yarn hardhat test ./test/unit/MyDeFi.test.ts
 ```
 
 The test suite covers all major functionalities, ensuring the contract behaves as expected.
@@ -82,13 +82,13 @@ Here are some example commands to interact with the contract:
 1. **Deposit Ether:**
 
    ```js
-   await myDeFi.diposit({ value: ethers.utils.parseUnits("1", "gwei") });
+   await myDeFi.diposit({ value: ethers.parseUnits("1", "gwei") });
    ```
 
 2. **Mint Tokens with Ether:**
 
    ```js
-   await myDeFi.mint(10, { value: ethers.utils.parseUnits("10", "gwei") });
+   await myDeFi.mint(10, { value: ethers.parseUnits("10", "gwei") });
    ```
 
 3. **Mint Tokens with Deposited Balance:**
