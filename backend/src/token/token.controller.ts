@@ -2,7 +2,6 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { TokenService } from './token.service';
 import { AddressDto, MintDto } from './dto';
 
-// @ApiTags('Auth')
 @Controller('token')
 export class TokenController {
   constructor(private tokenService: TokenService) {}

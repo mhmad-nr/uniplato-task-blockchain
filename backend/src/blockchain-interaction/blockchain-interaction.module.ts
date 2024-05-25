@@ -6,6 +6,5 @@ import { BCService } from './blockchain-interaction.service';
   imports: [],
   controllers: [BCController],
   providers: [BCService],
-  exports: [BCService],
 })
 export class BCModule {}

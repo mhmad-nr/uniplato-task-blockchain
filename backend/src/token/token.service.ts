@@ -1,24 +1,19 @@
-import {
-  Injectable,
-  InternalServerErrorException,
-  BadRequestException,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import * as ethers from 'ethers';
 import { MintDto } from './dto/mint.dto';
-import { ValueDto } from './dto/value.dto';
 import {
   abi,
   address as contractAddress,
 } from '../util/contracts/sepolia/MyDeFi.json';
 import { AddressDto } from './dto';
 
-const url =
-  'https://eth-sepolia.g.alchemy.com/v2/3VcyTXGugy89ZiitlqrRGmo8SHTTr-g4';
+
 @Injectable()
 export class TokenService {
   private provider: ethers.JsonRpcProvider;
   constructor() {
-    this.provider = new ethers.JsonRpcProvider(url);
+    const RPC_URL = process.env.SEPOLIA_RPC_URL || '';
+    this.provider = new ethers.JsonRpcProvider(RPC_URL);
   }
   async getContract(key: string) {
     const signer = new ethers.Wallet(key, this.provider);

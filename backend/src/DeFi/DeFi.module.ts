@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { DeFiController } from './DeFi.controller';
-import { DeFiService } from './DeFi.service';
+import { DeFiController } from './defi.controller';
+import { DeFiService } from './defi.service';
 
 @Module({
   imports: [],

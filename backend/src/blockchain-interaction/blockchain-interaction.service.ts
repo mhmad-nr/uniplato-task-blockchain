@@ -7,14 +7,13 @@ import * as ethers from 'ethers';
 import { TransactionDto } from './dto/transaction.dto';
 import { ValueDto } from './dto/value.dto';
 
-const url =
-  'https://eth-sepolia.g.alchemy.com/v2/3VcyTXGugy89ZiitlqrRGmo8SHTTr-g4';
 @Injectable()
 export class BCService {
   private provider: ethers.JsonRpcProvider;
   constructor() {
-    this.provider = new ethers.JsonRpcProvider(url);
+    const RPC_URL = process.env.SEPOLIA_RPC_URL || '';
 
+    this.provider = new ethers.JsonRpcProvider(RPC_URL);
   }
 
   async getBalance(address: string): Promise<ValueDto> {
