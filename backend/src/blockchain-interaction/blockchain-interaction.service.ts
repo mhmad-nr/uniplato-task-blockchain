@@ -4,8 +4,7 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import * as ethers from 'ethers';
-import { TransactionDto } from './dto/transaction.dto';
-import { ValueDto } from './dto/value.dto';
+import { ValueDto , TransactionDto} from './dto';
 
 @Injectable()
 export class BCService {

@@ -3,7 +3,7 @@ import {
   Injectable,
   InternalServerErrorException,
 } from '@nestjs/common';
-import { PoolDto } from './dto/pool.dto';
+import { PoolDto } from './dto';
 import { ethers } from 'ethers';
 import {
   abi as uniswapFactoryABI,

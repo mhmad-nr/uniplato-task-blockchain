@@ -1,7 +1,6 @@
 import { Controller, Body, Post } from '@nestjs/common';
 import { BCService } from './blockchain-interaction.service';
-import { TransactionDto } from './dto/transaction.dto';
-import { AddressDto, ValueDto } from './dto';
+import { AddressDto, ValueDto ,TransactionDto} from './dto';
 
 // @ApiTags('Auth')
 @Controller('blockchain-interaction')

@@ -1,73 +1,173 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Simple Blockchain, Token And Defi Interaction API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Cloning and Setup
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### Prerequisites
 
-## Description
+Ensure you have the following installed:
+- Node.js (v14 or higher)
+- yarn (v1 or higher)
+- Git
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+### Clone the Repository
 
 ```bash
-$ yarn install
+git clone https://github.com/mhmad-nr/uniplato-task-blockchain.git
+cd backend
 ```
 
-## Running the app
+### Install Dependencies
 
 ```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+yarn
 ```
 
-## Test
+### Setup Environment Variables
+
+Create a `.env` file in the project root like `.example.env` and add the following environment variables:
+
+```
+SEPOLIA_RPC_URL=<Your_Sepolia_RPC_URL>
+PRIVATE_KEY=<Your_Private_Key>
+```
+
+### Run the Application
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+yarn npm run start:dev
 ```
 
-## Support
+### Running Tests
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+yarn run test
+```
+### Setup Script
 
-## Stay in touch
+To simplify the setup process, you can use the `setup.sh` script. This script will install dependencies, compile TypeScript files, and notify you when the setup is complete.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Contents of `setup.sh`
 
-## License
+```bash
+#!/bin/bash
 
-Nest is [MIT licensed](LICENSE).
+# Install dependencies using yarn
+yarn install
+
+# Additional setup commands
+# Example: Compile TypeScript files
+yarn run build
+
+# Notify the user that setup is complete
+echo "Setup complete. Ensure you have created a .env file with the necessary environment variables."
+```
+
+To use the setup script, run the following command in the project root:
+
+```bash
+./setup.sh
+```
+
+
+
+## Project Structure
+
+```
+- src/
+  - blockchain-interaction/
+    - blockchain-interaction.controller.ts   # Controller for blockchain interaction endpoints
+    - blockchain-interaction.module.ts       # Module definition for blockchain interaction
+    - blockchain-interaction.service.ts      # Service handling blockchain interactions
+    - dto/
+      - address.dto.ts                       # Data Transfer Object for address
+      - transaction.dto.ts                   # Data Transfer Object for transactions
+      - value.dto.ts                         # Data Transfer Object for values
+  - defi/
+    - defi.controller.ts                     # Controller for DeFi related endpoints
+    - defi.module.ts                         # Module definition for DeFi
+    - defi.service.ts                        # Service handling DeFi interactions
+    - dto/
+      - pool.dto.ts                          # Data Transfer Object for pool creation and queries
+  - token/
+    - token.controller.ts                    # Controller for token-related endpoints
+    - token.module.ts                        # Module definition for token management
+    - token.service.ts                       # Service handling token operations
+    - dto/
+      - address.dto.ts                       # Data Transfer Object for address
+      - mint.dto.ts                          # Data Transfer Object for minting tokens
+      - value.dto.ts                         # Data Transfer Object for values
+  - util/
+    - contracts/
+      - sepolia/
+        - MyDeFi.json                        # ABI and address for MyDeFi contract on Sepolia
+        - Uniswap.json                       # ABI and address for Uniswap contract on Sepolia
+- test/
+  - blockchain-interaction.controller.spec.ts  # Test suite for blockchain interaction controller
+  - defi.controller.spec.ts                    # Test suite for DeFi controller
+  - token.controller.spec.ts                   # Test suite for token controller
+- .env                                       # Environment variable file
+- package.json                               # Node.js dependencies and scripts
+- tsconfig.json                              # TypeScript configuration
+- README.md                                  # Project documentation
+```
+
+## Features
+
+- **Blockchain Interaction**: Retrieve balance and transaction count, and send transactions.
+- **DeFi Services**: Create liquidity pools, enable fee amounts, and retrieve tick spacing.
+- **Token Management**: Get token balance, get ETH balance, and mint tokens.
+
+
+
+## API Endpoints
+
+### Blockchain Interaction
+
+- **POST /blockchain-interaction/balance**: Get balance of an address
+  - **Body**: `{ "address": "0x123..." }`
+  - **Response**: `{ "value": "1000.0" }`
+
+- **POST /blockchain-interaction/transaction-count**: Get transaction count of an address
+  - **Body**: `{ "address": "0x123..." }`
+  - **Response**: `{ "value": 5 }`
+
+- **POST /blockchain-interaction/transaction**: Send a transaction
+  - **Body**: `{ "from": "0x123...", "to": "0xabc...", "amount": 0.1, "privateKey": "your-private-key" }`
+  - **Response**: `{ "value": "transaction-hash" }`
+
+### Token Management
+
+- **POST /token/token-balance**: Get token balance of an address
+  - **Body**: `{ "address": "0x123...", "privateKey": "your-private-key" }`
+  - **Response**: `"1000.0"`
+
+- **POST /token/eth-balance**: Get ETH balance of an address
+  - **Body**: `{ "address": "0x123...", "privateKey": "your-private-key" }`
+  - **Response**: `"500.0"`
+
+- **POST /token/mint**: Mint tokens
+  - **Body**: `{ "amount": 100, "privateKey": "your-private-key" }`
+  - **Response**: `{ "value": "transaction-hash" }`
+
+### DeFi Services
+
+- **GET /defi/factory-owner**: Get factory owner
+  - **Response**: `"0xowneraddress"`
+
+- **GET /defi/enable-fee-amount/:fee/:tickspacing**: Enable fee amount
+  - **Params**: `fee`, `tickspacing`
+  - **Response**: `{ "value": "transaction-hash" }`
+
+- **GET /defi/tick-spacing/:fee**: Get tick spacing for a fee
+  - **Params**: `fee`
+  - **Response**: `10`
+
+- **POST /defi/create-pool**: Create a new liquidity pool
+  - **Body**: `{ "tokenA": "0x123...", "tokenB": "0xabc...", "fee": 500 }`
+  - **Response**: `"transaction-hash"`
+
+- **POST /defi/pool-address**: Get pool address
+  - **Body**: `{ "tokenA": "0x123...", "tokenB": "0xabc...", "fee": 500 }`
+  - **Response**: `"0xpooladdress"`
+
+

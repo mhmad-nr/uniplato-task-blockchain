@@ -1,11 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import * as ethers from 'ethers';
-import { MintDto } from './dto/mint.dto';
 import {
   abi,
   address as contractAddress,
 } from '../util/contracts/sepolia/MyDeFi.json';
-import { AddressDto } from './dto';
+import { AddressDto, MintDto } from './dto';
 
 
 @Injectable()
