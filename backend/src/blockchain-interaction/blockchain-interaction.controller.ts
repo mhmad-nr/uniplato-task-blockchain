@@ -1,8 +1,7 @@
 import { Controller, Body, Post } from '@nestjs/common';
 import { BCService } from './blockchain-interaction.service';
 import { TransactionDto } from './dto/transaction.dto';
-import { ValueDto } from './dto/value.dto';
-import { AddressDto } from './dto';
+import { AddressDto, ValueDto } from './dto';
 
 // @ApiTags('Auth')
 @Controller('blockchain-interaction')
@@ -20,7 +19,7 @@ export class BCController {
   }
 
   @Post('transaction')
-  create(@Body() transactionDto: TransactionDto) {
-    return this.bCService.sendTransaction(transactionDto);
+  async sedTransaction(@Body() transactionDto: TransactionDto) {
+    return await this.bCService.sendTransaction(transactionDto);
   }
 }
