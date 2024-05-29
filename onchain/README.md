@@ -21,7 +21,7 @@ The MyDeFi contract is deployed on the Sepolia testnet at the following address:
 ### Prerequisites
 
 - Node.js (v14 or later)
-- npm (v6 or later)
+- pnpm (v9 or later)
 - Hardhat
 
 ### Installation
@@ -36,7 +36,7 @@ The MyDeFi contract is deployed on the Sepolia testnet at the following address:
 2. Install the dependencies:
 
    ```bash
-   yarn
+   pnpm install
    ```
 
 ### Configuration
@@ -54,7 +54,7 @@ The MyDeFi contract is deployed on the Sepolia testnet at the following address:
 To deploy the MyDeFi contract to the Sepolia testnet, use the following command:
 
 ```bash
-yarn hardhat deploy deploy/01_Deploy_MyDeFi.ts --network sepolia
+pnpm hardhat deploy deploy/01_Deploy_MyDeFi.ts --network sepolia
 ```
 
 ### Verification
@@ -62,7 +62,7 @@ yarn hardhat deploy deploy/01_Deploy_MyDeFi.ts --network sepolia
 If you want to verify the contract on Etherscan, make sure you have set the `ETHERSCAN_API_KEY` in your `.env` file and then run:
 
 ```bash
-yarn hardhat verify --network sepolia <DEPLOYED_CONTRACT_ADDRESS>
+pnpm hardhat verify --network sepolia <DEPLOYED_CONTRACT_ADDRESS>
 ```
 
 ### Running Tests
@@ -70,7 +70,7 @@ yarn hardhat verify --network sepolia <DEPLOYED_CONTRACT_ADDRESS>
 To run the test suite, use the following command:
 
 ```bash
-yarn hardhat test ./test/unit/MyDeFi.test.ts
+pnpm hardhat test ./test/unit/MyDeFi.test.ts
 ```
 
 The test suite covers all major functionalities, ensuring the contract behaves as expected.

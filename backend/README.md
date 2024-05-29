@@ -6,7 +6,7 @@
 
 Ensure you have the following installed:
 - Node.js (v14 or higher)
-- yarn (v1 or higher)
+- pnpm (v1 or higher)
 - Git
 
 ### Clone the Repository
@@ -19,7 +19,7 @@ cd backend
 ### Install Dependencies
 
 ```bash
-yarn
+pnpm install
 ```
 
 ### Setup Environment Variables
@@ -34,13 +34,13 @@ PRIVATE_KEY=<Your_Private_Key>
 ### Run the Application
 
 ```bash
-yarn npm run start:dev
+pnpm run start:dev
 ```
 
 ### Running Tests
 
 ```bash
-yarn run test
+pnpm run test
 ```
 ### Setup Script
 
@@ -51,12 +51,12 @@ To simplify the setup process, you can use the `setup.sh` script. This script wi
 ```bash
 #!/bin/bash
 
-# Install dependencies using yarn
-yarn install
+# Install dependencies using pnpm
+pnpm install
 
 # Additional setup commands
 # Example: Compile TypeScript files
-yarn run build
+pnpm run build
 
 # Notify the user that setup is complete
 echo "Setup complete. Ensure you have created a .env file with the necessary environment variables."
